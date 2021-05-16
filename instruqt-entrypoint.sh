@@ -8,6 +8,8 @@ sed -i "s#hostname = \"localhost\"#hostname = \"${APIM_HOST}\"#" ${WSO2_SERVER_H
 sed -i -E "s#^base_path = .+#base_path = \"https://${APIM_HOST}\"#"  ${WSO2_SERVER_HOME}/repository/conf/deployment.toml
 
 cat >> ${WSO2_SERVER_HOME}/repository/conf/deployment.toml <<EOF
+
+## Added by instruqt-entrypoint.sh
 [apim.idp]
 server_url = "https://${APIM_HOST}"
 authorize_endpoint = "https://${APIM_HOST}/oauth2/authorize"
